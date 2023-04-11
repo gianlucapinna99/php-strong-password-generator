@@ -1,14 +1,6 @@
-<?php
-function generateStrongPassword($length = 12)
-{
-    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~[]{}';
-    $password = '';
-    for ($i = 0; $i < $length; $i++) {
-        $password .= $chars[mt_rand(0, strlen($chars) - 1)];
-    }
-    return $password;
-}
+<?php require_once 'functions.php'; ?>
 
+<?php
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $length = isset($_GET['length']) ? (int)$_GET['length'] : 12;
     $password = generateStrongPassword($length);
